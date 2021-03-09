@@ -1,16 +1,16 @@
+require 'yaml'
+
 module UserHelper
 
-  def save_test_user_to_file(file, user, password)
+  def save_test_user_to_yaml_file(file)
     File.open(file, 'w') do |f|
-      f.puts "#{user}:#{password}"
+      f.write self.to_hash.to_yaml
     end
   end
 
-  def read_from_file (file)
+  def read_from_yaml_file(file)
     return unless File.exists?(file)
-    user = File.readlines(file)
-    user.map! { |i| i.chomp }
-    user.map! { |i| i.split(':') }
-    user.map! { |i| {user_name: i[0], user_pw: i[1]} }
+    YAML.load(File.read(file))
   end
+
 end

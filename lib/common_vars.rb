@@ -1,3 +1,4 @@
 module CommonVars
-  REGISTERED_USERS = 'registered_users.txt'.freeze
+  REGISTERED_USER_YAML_FILE = 'registered_user.yaml'.freeze
+  REDMINE_TESTAUTOMATE_HEADER = 'Redmine@testautomate.me'.freeze
 end
