@@ -1,0 +1,9 @@
+detectors:
+  UtilityFunction:
+    exclude:
+      - 'options'
+  IrresponsibleModule:
+    exclude:
+      - 'HomePage'
+      - 'SignUpPage'
+      - 'MenuSection'

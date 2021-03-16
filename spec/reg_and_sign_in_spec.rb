@@ -1,23 +1,17 @@
+# frozen_string_literal: true
+
 feature 'Registration and Sign in', js: true do
-
   before(:all) do
-    #@file = "#{Directories::DATA}/#{CommonVars::REGISTERED_USER_TXT}"
-    #@random = SecureRandom.hex
-    #@user_name = "test#{@random}"
-    #@password = "test1234"
-    #    save_test_user_to_file(@file, @user_name, @password)
-
-    @registered_user_yaml_file = "#{Directories::DATA}/#{CommonVars::REGISTERED_USER_YAML_FILE}"
+    @registered_user_yaml_file = "#{DATA}/#{REGISTERED_USER_YAML_FILE}"
     @user = User.new
     @user.save_test_user_to_yaml_file(@registered_user_yaml_file)
-
   end
 
-   scenario 'User can register' do
+  scenario 'User can register' do
     @home_page = HomePage.new
 
     @home_page.load
-    expect(@home_page.header.text).to include CommonVars::REDMINE_TESTAUTOMATE_HEADER
+    expect(@home_page.header.text).to include REDMINE_TESTAUTOMATE_HEADER
     @home_page.menu.sign_up_link.click
 
     @sign_up_page = SignUpPage.new
@@ -31,30 +25,27 @@ feature 'Registration and Sign in', js: true do
 
     @sign_up_page.submit_btn.click
 
-    expect(@sign_up_page.menu.logged_as.text).to include "Logged in as #{@user_name}"
-   end
+    expect(@sign_up_page.menu.logged_as.text).to include "Logged in as #{@user.user_name}"
+  end
 
   scenario 'User can log in' do
-    registered_user = read_from_yaml_file(@file)
+    registered_user = @user.read_from_yaml_file(@registered_user_yaml_file)
 
-    @user_name = registered_user.fetch(:user_name)
-    @user_password = registered_user.fetch(:password)
+    user_name = registered_user.fetch(:user_name)
+    user_password = registered_user.fetch(:password)
 
     @home_page = HomePage.new
 
     @home_page.load
-    expect(@home_page.header.text).to include CommonVars::REDMINE_TESTAUTOMATE_HEADER
+    expect(@home_page.header.text).to include REDMINE_TESTAUTOMATE_HEADER
     @home_page.menu.sign_in_link.click
 
     @sign_in_page = SignInPage.new
 
-    @sign_in_page.username.set @user_name
-    @sign_in_page.password.set @user_password
+    @sign_in_page.username.set user_name
+    @sign_in_page.password.set user_password
     @sign_in_page.login_btn.click
 
-    expect(@sign_in_page.menu.logged_as.text).to include "Logged in as #{@user_name}"
+    expect(@sign_in_page.menu.logged_as.text).to include "Logged in as #{user_name}"
   end
 end
-
-
-
