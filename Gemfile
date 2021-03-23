@@ -3,6 +3,7 @@
 source 'http://rubygems.org'
 
 gem 'capybara'
+gem 'ffaker'
 gem 'nokogiri', '1.10.1'
 gem 'reek'
 gem 'require_all'

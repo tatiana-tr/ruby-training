@@ -2,8 +2,20 @@ detectors:
   UtilityFunction:
     exclude:
       - 'options'
+      - 'FileHelper'
   IrresponsibleModule:
     exclude:
       - 'HomePage'
       - 'SignUpPage'
       - 'MenuSection'
+      - 'User'
+      - 'FeatureHelper'
+  DuplicateMethodCall:
+    exclude:
+      - 'register_user'
+  Attribute:
+    enabled: false
+  TooManyStatements:
+    max_statements: 10
+  TooManyInstanceVariables:
+    max_instance_variables: 6

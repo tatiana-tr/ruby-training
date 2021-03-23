@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+require 'ffaker'
 require 'securerandom'
 
+# This Class describes user object
 class User
   attr_accessor :user_name, :password, :firstname, :lastname, :email
 
@@ -9,25 +11,20 @@ class User
     random = SecureRandom.hex
 
     @user_name = args[:user_name] || "test#{random}"
-    @password = args[:password] || 'test1234'
-    @firstname = args[:firstname] || 'Test'
-    @lastname = args[:lastname] || 'User'
-    @email = args[:email] || "test#{random}@test.org"
+    @password = args[:password] || FFaker::Internet.password
+    @firstname = args[:firstname] || FFaker::Name.first_name
+    @lastname = args[:lastname] || FFaker::Name.last_name
+    @email = args[:email] || FFaker::Internet.email
   end
 
   def to_hash
     { user_name: user_name, password: password, firstname: firstname, lastname: lastname, email: email }
   end
 
-  def save_test_user_to_yaml_file(file)
-    File.open(file, 'w') do |f|
-      f.write to_hash.to_yaml
+  def save_test_user_to_yaml_file(file_path)
+    File.open(file_path, 'w') do |file|
+      file.write to_hash.to_yaml
     end
   end
 
-  def read_from_yaml_file(file)
-    return unless File.exist?(file)
-
-    YAML.load(File.read(file))
-  end
 end
