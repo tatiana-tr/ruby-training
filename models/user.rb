@@ -8,9 +8,7 @@ class User
   attr_accessor :username, :password, :firstname, :lastname, :email
 
   def initialize(**args)
-    random = SecureRandom.hex
-
-    @username = args[:username] || "test#{random}"
+    @username = args[:username] || FFaker::Random.rand.to_s
     @password = args[:password] || FFaker::Internet.password
     @firstname = args[:firstname] || FFaker::Name.first_name
     @lastname = args[:lastname] || FFaker::Name.last_name
@@ -18,7 +16,7 @@ class User
   end
 
   def to_hash
-    {username: username, password: password, firstname: firstname, lastname: lastname, email: email }
+    { username: username, password: password, firstname: firstname, lastname: lastname, email: email }
   end
 
   def save_test_user_to_yaml_file(file_path)
