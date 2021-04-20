@@ -3,10 +3,11 @@
 source 'http://rubygems.org'
 
 gem 'capybara'
+gem 'dotenv'
 gem 'ffaker'
-gem 'nokogiri', '1.10.1'
 gem 'reek'
 gem 'require_all'
+gem 'rest-client'
 gem 'rspec'
 gem 'rubocop'
 gem 'selenium-webdriver'

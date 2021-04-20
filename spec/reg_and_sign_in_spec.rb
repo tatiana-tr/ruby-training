@@ -15,13 +15,13 @@ feature 'Registration and Sign in', js: true do
 
     register_user(@user)
 
-    expect(@sign_up_page.menu.logged_as.text).to include "Logged in as #{@user.user_name}"
+    expect(@sign_up_page.menu.logged_as.text).to include "Logged in as #{@user.username}"
   end
 
   scenario 'User can log in' do
     registered_user = read_from_yaml_file(@registered_user_yaml_file)
 
-    user_name = registered_user.fetch(:user_name)
+    user_name = registered_user.fetch(:username)
     user_password = registered_user.fetch(:password)
 
     @home_page = HomePage.new

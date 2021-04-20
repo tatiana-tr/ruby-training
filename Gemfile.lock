@@ -14,17 +14,27 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     diff-lcs (1.4.4)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.6)
     ffaker (2.18.0)
+    http-accept (1.7.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     kwalify (0.7.2)
-    mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
-    nokogiri (1.10.1)
-      mini_portile2 (~> 2.4.0)
+    mime-types (3.3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2021.0225)
+    mini_mime (1.1.0)
+    netrc (0.11.0)
+    nokogiri (1.11.3-x86_64-darwin)
+      racc (~> 1.4)
     parallel (1.20.1)
-    parser (3.0.0.0)
+    parser (3.0.1.0)
       ast (~> 2.4.1)
     psych (3.3.1)
     public_suffix (4.0.6)
+    racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -36,7 +46,12 @@ GEM
       rainbow (>= 2.0, < 4.0)
     regexp_parser (2.1.1)
     require_all (3.0.0)
-    rexml (3.2.4)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    rexml (3.2.5)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -50,7 +65,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
-    rubocop (1.11.0)
+    rubocop (1.13.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -71,21 +86,24 @@ GEM
       capybara (~> 3.8)
       site_prism-all_there (>= 0.3.1, < 1.0)
     site_prism-all_there (0.3.2)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.7)
     unicode-display_width (2.0.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yaml (0.1.1)
 
 PLATFORMS
-  ruby
-  universal-darwin-19
+  x86_64-darwin-19
 
 DEPENDENCIES
   capybara
+  dotenv
   ffaker
-  nokogiri (= 1.10.1)
   reek
   require_all
+  rest-client
   rspec
   rubocop
   selenium-webdriver
@@ -93,4 +111,4 @@ DEPENDENCIES
   yaml
 
 BUNDLED WITH
-   2.2.0
+   2.2.3

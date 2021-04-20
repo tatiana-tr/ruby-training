@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'capybara/rspec'
+require 'dotenv/load'
 require 'require_all'
 require 'selenium-webdriver'
 require 'site_prism'
@@ -16,6 +17,7 @@ include CommonStrings
 include Directories
 include FeatureHelper
 include FileHelper
+include ApiWrapper
 
 RSpec.configure do
   def options
