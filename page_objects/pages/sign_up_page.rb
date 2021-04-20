@@ -1,5 +1,7 @@
-class SignUpPage < SitePrism::Page
+# frozen_string_literal: true
 
+# This Class describes elements for Sign up Page
+class SignUpPage < SitePrism::Page
   section :menu, MenuSection, '#top-menu'
 
   element :login, '#user_login'
@@ -9,5 +11,4 @@ class SignUpPage < SitePrism::Page
   element :lastname, '#user_lastname'
   element :email, '#user_mail'
   element :submit_btn, '#new_user > input[type=submit]:nth-child(4)'
-
 end

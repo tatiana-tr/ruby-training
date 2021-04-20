@@ -1,15 +1,23 @@
+# frozen_string_literal: true
+
 require 'capybara/rspec'
 require 'require_all'
 require 'selenium-webdriver'
 require 'site_prism'
+require 'yaml'
 
-require_all 'lib'
+require_all 'data'
+require_all 'models'
 require_all 'page_objects/sections'
 require_all 'page_objects/pages'
+require_all 'spec/support'
 
-include UserHelper
+include CommonStrings
+include Directories
+include FeatureHelper
+include FileHelper
 
-RSpec.configure do |config|
+RSpec.configure do
   def options
     Selenium::WebDriver::Chrome::Options.new(args: %w[window-size=1800,1000])
   end
