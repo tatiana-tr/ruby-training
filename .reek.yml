@@ -3,12 +3,10 @@ detectors:
     exclude:
       - 'options'
       - 'FileHelper'
+      - 'ApiWrapper'
   IrresponsibleModule:
     exclude:
-      - 'HomePage'
-      - 'SignUpPage'
       - 'MenuSection'
-      - 'User'
       - 'FeatureHelper'
   DuplicateMethodCall:
     exclude:
@@ -19,3 +17,6 @@ detectors:
     max_statements: 10
   TooManyInstanceVariables:
     max_instance_variables: 6
+  FeatureEnvy:
+    exclude:
+      - 'ApiWrapper'

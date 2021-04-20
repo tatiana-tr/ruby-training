@@ -7,7 +7,7 @@ module FeatureHelper
 
     @sign_up_page = SignUpPage.new
 
-    @sign_up_page.login.set @user.user_name
+    @sign_up_page.login.set @user.username
     @sign_up_page.password.set @user.password
     @sign_up_page.password_confirmation.set @user.password
     @sign_up_page.firstname.set @user.firstname
