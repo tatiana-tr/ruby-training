@@ -14,7 +14,7 @@ detectors:
   Attribute:
     enabled: false
   TooManyStatements:
-    max_statements: 10
+    max_statements: 15
   TooManyInstanceVariables:
     max_instance_variables: 6
   FeatureEnvy:
