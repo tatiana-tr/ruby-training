@@ -23,3 +23,5 @@ module ApiWrapper
     { content_type: :json, 'x-redmine-api-key': ENV['API_KEY'] }
   end
 end
+
+World(ApiWrapper)

@@ -3,8 +3,11 @@
 source 'http://rubygems.org'
 
 gem 'capybara'
+gem 'cucumber'
 gem 'dotenv'
 gem 'ffaker'
+gem 'pry'
+gem 'rake'
 gem 'reek'
 gem 'require_all'
 gem 'rest-client'
