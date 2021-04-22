@@ -20,6 +20,7 @@ class User
   end
 
   def save_test_user_to_yaml_file(file_path)
+    Dir.mkdir 'artifacts' unless Dir.exist? 'artifacts'
     File.open(file_path, 'w') do |file|
       file.write to_hash.to_yaml
     end

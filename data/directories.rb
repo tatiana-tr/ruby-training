@@ -2,6 +2,5 @@
 
 module Directories
   THIS_DIR = File.dirname(__FILE__)
-  RUBY = THIS_DIR[/.*ruby-training/]
-  DATA = "#{RUBY}/artifacts"
+  DATA = File.expand_path('artifacts')
 end
