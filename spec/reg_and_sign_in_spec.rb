@@ -2,7 +2,7 @@
 
 feature 'Registration and Sign in', js: true do
   before(:all) do
-    @registered_user_yaml_file = "#{DATA}/#{REGISTERED_USER_YAML_FILE}"
+    @registered_user_yaml_file = "#{ARTIFACTS}/#{REGISTERED_USER_YAML_FILE}"
     @user = User.new
   end
 

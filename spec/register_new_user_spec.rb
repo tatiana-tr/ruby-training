@@ -2,7 +2,7 @@
 
 feature 'New user registration', js: true do
   scenario 'New user can register' do
-    @registered_user_yaml_file = "#{DATA}/#{REGISTERED_USER_YAML_FILE}"
+    @registered_user_yaml_file = "#{ARTIFACTS}/#{REGISTERED_USER_YAML_FILE}"
     @new_user = User.new
 
     @home_page = HomePage.new

@@ -10,8 +10,12 @@ And(/^I have preregistered user$/) do
   api_create_user(@user)
 end
 
-When(/^I click login button$/) do
-  @home_page.menu.sign_in_link.click
+When(/^I click '([^"]*)' button$/) do |button|
+  if button == 'login'
+    @home_page.menu.sign_in_link.click
+  else
+    @home_page.menu.sign_up_link.click
+  end
 end
 
 And(/^I fill in login form$/) do
@@ -20,10 +24,6 @@ end
 
 Then(/^I see that I become logged in user$/) do
   expect(@home_page.menu.logged_as.text).to include "Logged in as #{@user.username}"
-end
-
-When(/^I click register button$/) do
-  @home_page.menu.sign_up_link.click
 end
 
 And(/^I fill in registration form$/) do

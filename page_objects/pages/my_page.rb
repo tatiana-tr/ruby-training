@@ -7,4 +7,6 @@ class MyPage < SitePrism::Page
   element :content, '#content > h2'
   element :assigned_issues, '#block-issuesassignedtome > h3'
   element :reported_issues, '#block-issuesreportedbyme > h3'
+
+  elements :issues_subjects,'*> td.subject > a'
 end

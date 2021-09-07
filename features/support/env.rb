@@ -7,6 +7,7 @@ require 'selenium-webdriver'
 require 'site_prism'
 require 'rspec/expectations'
 require 'yaml'
+require 'pry'
 
 require_all 'data'
 require_all 'models'
